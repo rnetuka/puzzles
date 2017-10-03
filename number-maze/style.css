@@ -1,0 +1,24 @@
+#maze {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#maze td {
+    width: 60px;
+    height: 60px;
+    border: 1px solid black;
+    font-size: 34px;
+    text-align: center;
+}
+
+#maze td.current {
+    background-color: palevioletred !important;
+}
+
+#maze td.finish {
+    background-color: greenyellow;
+}
+
+#maze td.hint {
+    background-color: lightblue;
+}

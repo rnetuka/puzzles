@@ -1,0 +1,50 @@
+div.hex {
+    float: left;
+    margin-right: -26px;
+    margin-bottom: -50px;
+}
+
+div.hex .left {
+    float: left;
+    width: 0;
+    border-right: 30px solid #6C6;
+    border-top: 52px solid transparent;
+    border-bottom: 52px solid transparent;
+}
+
+div.hex .middle {
+    float: left;
+    width: 60px;
+    height: 104px;
+}
+
+div.hex .right {
+    float: left;
+    width: 0;
+    border-left: 30px solid #6C6;
+    border-top: 52px solid transparent;
+    border-bottom: 52px solid transparent;
+}
+
+.hex-row {
+    clear: left;
+}
+
+.hex.even {
+    margin-top: 53px;
+}
+
+#map-maze {
+    margin-bottom: 200px
+}
+
+#map-maze-tab .maze-legend {
+    clear: left;
+}
+
+#map-maze-tab .maze-legend .hex {
+    color: #6C6;
+    font-size: 135px;
+}
+
+

@@ -1,0 +1,38 @@
+.water-container {
+    width: 200px;
+    height: 200px;
+}
+
+.water-container.source {
+    opacity: 0.4;
+}
+
+.water-container.over {
+    border: 2px dashed #000;
+}
+
+.water-container-wrapper {
+    float: left;
+    margin-left: 5px;
+}
+
+.amount-panel {
+    text-align: center;
+    font-size: 1.8em;
+}
+
+.amount-panel .amount {
+
+}
+
+.amount-panel .capacity {
+    color: grey;
+}
+
+.button-panel {
+    clear: left;
+}
+
+[draggable] {
+    cursor: move;
+}

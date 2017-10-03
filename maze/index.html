@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <title>Bludiště</title>
+
+        <link rel="stylesheet" href="css/maze.css">
+        <link rel="stylesheet" href="css/maze-hex.css">
+        <link rel="stylesheet" href="css/maze-terrain.css">
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+        <script src="http://code.jquery.com/jquery-2.1.3.js"></script>
+        <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+        <script src="../pathfinding/graph.js"></script>
+        <script src="maze.js"></script>
+        <script src="maze-levels.js"></script>
+        <script src="maze-ui.js"></script>
+    </head>
+
+    <body>
+        <div id="maze-tabs">
+            <ul>
+                <li><a href="#wall-maze-tab">Bludiště se zdmi</a></li>
+                <li><a href="#robot-maze-tab">Bludiště s robotem</a></li>
+                <li><a href="#dynamite-maze-tab">Bludiště s dynamitem</a></li>
+                <li><a href="#border-maze-tab">Bludiště s příčkami</a></li>
+                <li><a href="#map-maze-tab">Mapa</a></li>
+                <li><a href="#sandbox-maze-tab">Vlastní bludiště</a></li>
+            </ul>
+
+            <div id="wall-maze-tab">
+                <p>Klasické bludiště se zdmi. Políčko je buď průchozí, nebo ho tvoří zeď.</p>
+                <div class='maze-wrapper'></div>
+                <div>
+                    <table class="maze-legend">
+                        <tr>
+                            <td class='tile start'></td>
+                            <td>Start</td>
+                            <td class='tile exit'></td>
+                            <td>Východ</td>
+                        </tr>
+                    </table>
+                    <button id="solve-wall-maze">Vyřešit</button>
+                </div>
+            </div>
+
+            <div id="robot-maze-tab">
+                <p></p>
+                <div class='maze-wrapper'></div>
+                <div>
+                    <table class="maze-legend">
+                        <tr>
+                            <td class='tile start'></td>
+                            <td>Start</td>
+                            <td class='tile exit'></td>
+                            <td>Východ</td>
+                        </tr>
+                    </table>
+                    <button id="solve-robot-maze">Vyřešit</button>
+                </div>
+            </div>
+
+            <div id="dynamite-maze-tab">
+                <div class='maze-wrapper'></div>
+                <div>
+                    <table class="maze-legend">
+                        <tr>
+                            <td class='tile start'></td>
+                            <td>Start</td>
+                            <td class='tile exit'></td>
+                            <td>Východ</td>
+                        </tr>
+                    </table>
+                    <button id="solve-dynamite-maze">Vyřešit</button>
+                </div>
+            </div>
+
+            <div id="border-maze-tab">
+                <p></p>
+                <div class='maze-wrapper'></div>
+                <div>
+                    <table class="maze-legend">
+                        <tr>
+                            <td class='tile start'></td>
+                            <td>Start</td>
+                            <td class='tile exit'></td>
+                            <td>Východ</td>
+                        </tr>
+                    </table>
+                    <button id="solve-border-maze">Vyřešit</button>
+                </div>
+            </div>
+
+            <div id="map-maze-tab">
+                <div class='maze-wrapper'></div>
+                <div>
+                    <table class="maze-legend">
+                        <tr>
+                            <td class="hex">&#x2B22;</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="hex">&#x2B22;</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <button id="solve-map-maze">Vyřešit</button>
+                </div>
+            </div>
+
+            <div id="sandbox-maze-tab">
+                <p></p>
+                <div class='maze-wrapper'></div>
+                <div>
+                    <table class="maze-legend">
+                        <tr>
+                            <td class='tile start'></td>
+                            <td>Start</td>
+                            <td class='tile exit'></td>
+                            <td>Východ</td>
+                        </tr>
+                    </table>
+                    <button id="solve-sandbox-maze">Vyřešit</button>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

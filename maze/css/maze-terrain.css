@@ -1,0 +1,53 @@
+div.hex.grass .left, div.hex.grass .right {
+    border-left-color: #6C6;
+    border-right-color: #6C6;
+}
+
+div.hex.grass .middle {
+    background: #6C6;
+}
+
+div.hex.forest .left, div.hex.forest .right {
+    border-left-color: #2da240;
+    border-right-color: #2da240;
+}
+
+div.hex.forest .middle {
+    background: #2da240;
+}
+
+div.hex.desert .left, div.hex.desert .right {
+    border-left-color: #fae77c;
+    border-right-color: #fae77c;
+}
+
+div.hex.desert .middle {
+    background: #fae77c;
+}
+
+div.hex.hills .left, div.hex.hills .right {
+    border-left-color: grey;
+    border-right-color: grey;
+}
+
+div.hex.hills .middle {
+    background: grey;
+}
+
+div.hex.mountains .left, div.hex.mountains .right {
+    border-left-color: grey;
+    border-right-color: grey;
+}
+
+div.hex.mountains .middle {
+    background: grey;
+}
+
+div.hex.water .left, div.hex.water .right {
+    border-left-color: #5798ff;
+    border-right-color: #5798ff;
+}
+
+div.hex.water .middle {
+    background: #5798ff;
+}

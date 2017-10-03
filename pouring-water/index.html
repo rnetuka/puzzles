@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Přelévání vody</title>
+
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+        <script src="../pathfinding/graph.js"></script>
+        <script src="pouring-water.js"></script>
+        <script src="pouring-water-ui.js"></script>
+    </head>
+
+    <body>
+        <h1>Logická úloha přelévání vody</h1>
+
+        <div class="tab-panel">
+            <ul>
+                <li><a href="#description">Úloha</a></li>
+                <li><a href="#solution">Řešení</a></li>
+                <li><a href="#source-codes">Zdrojový kód řešení</a></li>
+            </ul>
+
+            <div id="description" class="tab">
+                <p>
+                    Přelévání vody je logická úloha, ve které je za úkol pomocí nádob zadané kapacity získat předepsané množství
+                    vody. Na začátku je největší nádoba plná a ostatní prázdné. Nádoby nemají žádné značení, takže vodu lze přelévat
+                    jen tak, že ůplně vyprázdníme nebo zcela naplníme některou z nádob.
+                </p>
+
+                <div class="water-container-wrapper">
+                    <div id="water-container-1" class="water-container" data-id="0" draggable="true">
+                        <!-- SVG image here -->
+                    </div>
+
+                    <div class="amount-panel">
+                        <span class="amount" data-id="0"></span>
+                        <span>/</span>
+                        <span class="capacity" data-id="0"></span>
+                    </div>
+                </div>
+
+                <div class="water-container-wrapper">
+                    <div id="water-container-2" class="water-container" data-id="1" draggable="true">
+                        <!-- SVG image here -->
+                    </div>
+
+                    <div class="amount-panel">
+                        <span class="amount" data-id="1"></span>
+                        <span>/</span>
+                        <span class="capacity" data-id="1"></span>
+                    </div>
+                </div>
+
+                <div class="water-container-wrapper">
+                    <div id="water-container-3" class="water-container" data-id="2" draggable="true">
+                        <!-- SVG image here -->
+                    </div>
+
+                    <div class="amount-panel">
+                        <span class="amount" data-id="2"></span>
+                        <span>/</span>
+                        <span class="capacity" data-id="2"></span>
+                    </div>
+                </div>
+
+                <div class="button-panel">
+                    <select id="puzzle-select"></select>
+                    <button id="reset-button" title="Restartovat hádanku">Restart</button>
+                </div>
+            </div>
+
+            <div id="solution" class="tab">
+                <p>
+                    Pro člověka je úloha dosti náročná, počítačově se dá ale vyřešit poměrně jednoduše. Je potřeba
+                    vytvořit <em>stavový graf</em> který obsahuje všechny dosažitelné stavy rozložení objemů vody v
+                    nádobách spolu s cestami, jak ten který stav dosáhnout. Poté už jen stačí najít nejkratší cestu
+                    mezi počátečním a požadovaným stavem. Pokud taková cesta neexistuje, pak je úloha neřešitelná.
+                    Pokud existuje cest více, vezmeme libovolnou z nich.
+                </p>
+
+                <h3>Sestavení grafu</h3>
+                <p>
+                    Nejdříve je potřeba sestavit stavový graf. Dva stavy jsou si rovny, pokud je objem vody v po sobě
+                    jdoucích nádobách stejný (implementačně je možné porovnat objem vody plus kapacitu každé nádoby,
+                    nebo stačí jen objem vody plus index nádoby).
+
+                    Poté si vezmeme počáteční stav ze zadání úlohy, kdy je nějvětší nádoba úplně plná a ostatní prázdné
+                    a pro každé dvě nádoby A, B vytvoříme stav tak, že přelijeme vodu z nádoby A do nádoby B
+                    (optimalizace: pokud je nádoba A prázdná, nebo je nádoba B úplně plná, můžeme tuto kombinaci přeskočit).
+
+                    Takto vzniklý stav A<sub>2</sub>, B<sub>2</sub> hledáme v grafu. Pokud najdeme uzel odpovídající tomuto
+                    stavu, přidáme do grafu hranu z A,B do A<sub>2</sub>, B<sub>2</sub>. Pokud stav nenajdeme, přidáme jej
+                    do grafu i se zmíněnou hranou. Toto opakujeme dokud jsme schopni vygenerovat nové stavy.
+                </p>
+
+                <h3>Hledání cesty v grafu</h3>
+                <p>
+                    Jakmile máme graf hotový, stačí nám už najít jakoukoliv cestu mezi počátečním a koncovým stavem,
+                    ideálně pak cestu nejkratší. Tu nalezneme například použitím Dijkstrova algoritmu. Nalezená cesta
+                    nám udává množství vody v nádobách v každém kroku, ze kterých lze snadno dopočítat z které nádoby se
+                    přelévala voda do které.
+                </p>
+
+                <h3>Popis algoritmu</h3>
+                <p>
+
+                </p>
+
+                <details id="solution-details">
+                    <summary>Zobrazit</summary>
+                    <span class="step-count"></span>
+                    <ul></ul>
+                </details>
+            </div>
+
+            <div id="source-codes" class="tab">
+                <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+                <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+            </div>
+        </div>
+
+    </body>
+</html>

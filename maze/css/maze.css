@@ -1,0 +1,141 @@
+.maze {
+    border-collapse:collapse;
+    border:1px solid black;
+}
+
+.maze td {
+    border:1px solid black;
+    position: relative;
+}
+
+.maze td.border0 {
+    border-top-width: 4px;
+}
+
+.maze td.border1 {
+    border-right-width: 4px;
+}
+
+.maze td.border2 {
+    border-bottom-width: 4px;
+}
+
+.maze td.border3 {
+    border-left-width: 4px;
+}
+
+.maze td, .maze-legend .tile {
+    width: 50px;
+    height: 50px;
+}
+
+.maze td.path {
+    text-align: center;
+    color: red;
+}
+
+.maze td.path:after {
+    content: "";
+    position: absolute;
+    border: 2px red;
+}
+
+.maze td.path.left:after {
+    top: 50%;
+    left: 0;
+    bottom: 0;
+    right: 50%;
+    border-top-style: solid;
+}
+
+.maze td.path.right:after {
+    top: 50%;
+    left: 50%;
+    bottom: 0;
+    right: 0;
+    border-top-style: solid;
+}
+
+.maze td.path.horizontal:after {
+    top: 50%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-top-style: solid;
+}
+
+.maze td.path.top:after {
+    top: 0;
+    left: 0;
+    bottom: 50%;
+    width: 50%;
+    border-right-style: solid;
+}
+
+.maze td.path.bottom:after {
+    top: 50%;
+    left: 50%;
+    bottom: 0;
+    right: 0;
+    border-left-style: solid;
+}
+
+.maze td.path.vertical:after {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    border-right-style: solid;
+}
+
+.maze td.path.left-top:after {
+    top: 0;
+    left: 0;
+    height: 50%;
+    width: 50%;
+    border-bottom-style: solid;
+    border-right-style: solid;
+}
+
+.maze td.path.right-top:after {
+    top: 0;
+    left: 50%;
+    right: 0;
+    height: 50%;
+    border-left-style: solid;
+    border-bottom-style: solid;
+}
+
+.maze td.path.left-bottom:after {
+    top: 50%;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    border-right-style: solid;
+    border-top-style: solid;
+}
+
+.maze td.path.right-bottom:after {
+    top: 50%;
+    bottom: 0;
+    right: 0;
+    left: 50%;
+    border-left-style: solid;
+    border-top-style: solid;
+}
+
+.maze .empty {
+
+}
+
+.maze .wall {
+    background-color: grey;
+}
+
+.maze .start, .maze-legend .start {
+    background-color: plum;
+}
+
+.maze .exit, .maze-legend .exit {
+    background-color: lightgreen;
+}
